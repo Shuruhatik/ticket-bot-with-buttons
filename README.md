@@ -1,5 +1,7 @@
 # Ticket bot with buttons
 - Easy ticket bot in djs with buttons!
+- If you want to make a copy of the project hosted by Replit, [click here](https://repl.it/github/Shuruhatik/ticket-bot-with-buttons/)
+
 
 ### **How to use?**
 - Modify the setting in the `config.json` file
