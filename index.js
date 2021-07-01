@@ -4,7 +4,6 @@ require('discord-reply');
 const Dataa = require('st.db');
 const db = new Dataa(`/Datas/tickets.json`);
 const countsdb = new Dataa(`/Datas/tickets-counts.json`);
-const tranascript = require('discord-transcript');
 const ticketschannelsdb = new Dataa(`/Datas/tickets-channels.json`);
 const randomstring = require("randomstring");
 const app = require('express')();
