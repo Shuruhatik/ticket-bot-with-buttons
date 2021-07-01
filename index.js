@@ -370,4 +370,4 @@ client.on("ready", async () => {
 })
 
 
-client.login(`ODU2OTc5NTI2OTAzMjY3MzQ4.YNI6YQ.YB6OBraGob1Nh4bX6nzL9pJ8pmw`)
+client.login(process.env['token'])
