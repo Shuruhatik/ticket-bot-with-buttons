@@ -67,6 +67,8 @@ client.on('message', async (message) => {
 > \`${prefix}add\` - يضيف عضوًا إلى تذكرة محددة.
 > \`${prefix}remove\` - يزيل عضوًا إلى تذكرة محددة.
 > \`${prefix}delete\` - حذف تذكرة معينة
+> \`${prefix}close\` - لإغلاق التذكرة
+> \`${prefix}open\` - لفتح تذكرة
 > \`${prefix}rename\` - إعادة تسمية تذكرة معينة`)
       .setTimestamp()
       .setColor(0x5865F2)
@@ -74,7 +76,7 @@ client.on('message', async (message) => {
     message.lineReply({ embed: embed })
   }//All Copy Right Reserved For: Shuruhatik  in YT
   if (command == prefix + `add`) {
-    if (!message.author.hasPermission('MANAGE_MESSAGES')) return message.lineReply(`:x: This command requires \`MANAGE_MESSAGES\` permission.`);
+    if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.lineReply(`:x: This command requires \`MANAGE_MESSAGES\` permission.`);
     let args = message.content.split(' ').slice(1).join(' ');
     let channel = message.mentions.channels.first() || message.channel;
     if (await ticketschannelsdb.has(`ticket_${channel.id}`) == true) {
@@ -105,7 +107,7 @@ client.on('message', async (message) => {
     }
   }//All Copy Right Reserved For: Shuruhatik  in YT
   if (command == prefix + `remove`) {
-    if (!message.author.hasPermission('MANAGE_MESSAGES')) return message.lineReply(`:x: This command requires \`MANAGE_MESSAGES\` permission.`);
+    if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.lineReply(`:x: This command requires \`MANAGE_MESSAGES\` permission.`);
     let args = message.content.split(' ').slice(1).join(' ');
     let channel = message.mentions.channels.first() || message.channel;
     if (await ticketschannelsdb.has(`ticket_${channel.id}`) == true) {
@@ -133,7 +135,7 @@ client.on('message', async (message) => {
     }
   }//All Copy Right Reserved For: Shuruhatik  in YT
   if (command == prefix + 'delete') {
-    if (!message.author.hasPermission('MANAGE_MESSAGES')) return message.lineReply(`:x: This command requires \`MANAGE_MESSAGES\` permission.`);
+    if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.lineReply(`:x: This command requires \`MANAGE_MESSAGES\` permission.`);
     let channel = message.mentions.channels.first() || message.channel;
     if (await ticketschannelsdb.has(`ticket_${channel.id}`) == true) {
       message.lineReply({ embed: { description: `يتم تنفيذ طلبك بعد 5 ثانية ، وسيتم إغلاقه`, color: 0x5865F2 } })
@@ -152,7 +154,7 @@ client.on('message', async (message) => {
     }
   }//All Copy Right Reserved For: Shuruhatik  in YT
   if (command == prefix + 'close') {
-    if (!message.author.hasPermission('MANAGE_MESSAGES')) return message.lineReply(`:x: This command requires \`MANAGE_MESSAGES\` permission.`);
+    if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.lineReply(`:x: This command requires \`MANAGE_MESSAGES\` permission.`);
     let channel = message.mentions.channels.first() || message.channel;
     if (await ticketschannelsdb.has(`ticket_${channel.id}`) == true) {
       let msg = await message.lineReply({ embed: { description: `يتم تنفيذ طلبك بعد 5 ثانية ، وسيتم إغلاقه`, color: 0x5865F2 } })
@@ -178,7 +180,7 @@ client.on('message', async (message) => {
     }
   }//All Copy Right Reserved For: Shuruhatik  in YT
   if (command == prefix + 'open') {
-    if (!message.author.hasPermission('MANAGE_MESSAGES')) return message.lineReply(`:x: This command requires \`MANAGE_MESSAGES\` permission.`);
+    if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.lineReply(`:x: This command requires \`MANAGE_MESSAGES\` permission.`);
     let channel = message.mentions.channels.first() || message.channel;
     if (await ticketschannelsdb.has(`ticket_${channel.id}`) == true) {
       let msg = await message.lineReply({ embed: { description: `يتم تنفيذ طلبك بعد 5 ثانية`, color: 0x5865F2 } })
@@ -221,7 +223,7 @@ client.on('message', async (message) => {
     }
   }//All Copy Right Reserved For: Shuruhatik  in YT
   if (command == prefix + 'rename' || command == prefix + 'setname') {
-    if (!message.author.hasPermission('MANAGE_MESSAGES')) return message.lineReply(`:x: This command requires \`MANAGE_MESSAGES\` permission.`);
+    if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.lineReply(`:x: This command requires \`MANAGE_MESSAGES\` permission.`);
     let channel = message.mentions.channels.first() || message.channel;
     if (await ticketschannelsdb.has(`ticket_${channel.id}`) == true) {
       let args = message.content.split(' ').slice(1).join(' ');
@@ -240,7 +242,7 @@ client.on('message', async (message) => {
     }
   }//All Copy Right Reserved For: Shuruhatik  in YT
   if (command == prefix + 'send' || command == prefix + 'ticket') {
-    if (!message.author.hasPermission('ADMINISTRATOR')) return message.lineReply(`:x: This command requires \`ADMINISTRATOR\` permission.`);
+    if (!message.member.hasPermission('ADMINISTRATOR')) return message.lineReply(`:x: This command requires \`ADMINISTRATOR\` permission.`);
     let idd = randomstring.generate({ length: 20 })
     let args = message.content.split(' ').slice(1).join(' ');
     if (!args) args = `تذاكر`
