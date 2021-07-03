@@ -25,6 +25,7 @@ async function channelLog(embed) {
 
 //All Copy Right Reserved For: Shuruhatik  in YT
 client.on('ready', async () => {
+  channelLog(`> The **Bot** is reconnecting`)
   client.on('message', async (message) => {
     let tickets = db.all()
     if (message.author.bot) return;
