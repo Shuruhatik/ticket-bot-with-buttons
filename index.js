@@ -28,7 +28,6 @@ client.on('ready', async () => {
   channelLog(`> The **Bot** is reconnecting`)
   client.on('message', async (message) => {
     let tickets = db.all()
-    if (message.author.bot) return;
     tickets.forEach(async body => {
       let channel = await client.channels.cache.get(body.data.channelID)
       if (!channel) return;
